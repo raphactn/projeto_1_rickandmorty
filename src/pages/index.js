@@ -15,13 +15,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-const home = () => {
+const home = ({ data }) => {
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
   const [page, setPage] = useState(1);
   const [info, setInfo] = useState(0);
   const [activeFavorits, setActiveFavorits] = useState(false);
+
+  console.log(data);
 
   useEffect(() => {
     axios
@@ -43,18 +45,6 @@ const home = () => {
         console.log(error);
       });
   }, [search, status, page, activeFavorits]);
-
-  //Metodo de pesquisa de array.
-
-  // const filterResults = results.filter((item) => {
-  //   const name = item.name.toLocaleLowerCase();
-  //   if (status) {
-  //     return (
-  //       name.includes(search.toLocaleLowerCase()) && item.status === status
-  //     );
-  //   }
-  //   return name.includes(search.toLocaleLowerCase());
-  // });
 
   return (
     <Container maxW={"1400px"} p={10}>
@@ -83,7 +73,7 @@ const home = () => {
       </Flex>
       <SimpleGrid columns={2} spacing={5}>
         {results.map((item) => (
-          <Card key={item.id} personagem={item} />
+          <Card key={item.id} personagem={item} pathname={"/character"} />
         ))}
       </SimpleGrid>
 
