@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 export const Card = ({ personagem, pathname }) => {
   let arrayId = [];
-  const [change, setChange] = useState(false);
+  const [, setChange] = useState(false);
   const router = useRouter();
 
   const handleFavorit = (id) => {
@@ -32,8 +32,8 @@ export const Card = ({ personagem, pathname }) => {
         <Flex>
           <Image
             src={personagem.image}
-            width={"200"}
-            height={"200"}
+            width={200}
+            height={200}
             alt={personagem.name}
           />
           <Box p={5}>

@@ -8,22 +8,20 @@ import {
   Center,
   IconButton,
   Text,
-  Button,
+  Button,  
 } from "@chakra-ui/react";
 import { Card } from "@/components/Card";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
-const home = ({ data }) => {
+const home = () => {
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("");
   const [page, setPage] = useState(1);
   const [info, setInfo] = useState(0);
   const [activeFavorits, setActiveFavorits] = useState(false);
-
-  console.log(data);
 
   useEffect(() => {
     axios
